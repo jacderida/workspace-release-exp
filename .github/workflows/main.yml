@@ -1,0 +1,26 @@
+name: main
+on:
+  push:
+    branches:
+      - main
+env:
+  RUST_BACKTRACE: 1
+jobs:
+  build:
+    if: github.repository_owner == 'maidsafe'
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        id: toolchain
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - shell: bash
+        run: cargo build --release
+      - uses: actions/upload-artifact@master
+        with:
+          name: adder-ubuntu-latest
+          path: artifacts
