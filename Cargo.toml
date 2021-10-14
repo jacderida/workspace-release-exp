@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "jacderida-exp-adder",
+    "jacderida-exp-add-one"
+]
