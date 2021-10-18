@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-jacderida-exp-add-one = { version = "0.1.0", path = "../jacderida-exp-add-one" }
+jacderida-exp-add-lib = { version = "0.1.0", path = "../jacderida-exp-add-lib" }

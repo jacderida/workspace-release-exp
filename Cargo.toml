@@ -2,5 +2,5 @@
 
 members = [
     "jacderida-exp-adder",
-    "jacderida-exp-add-one"
+    "jacderida-exp-add-lib"
 ]

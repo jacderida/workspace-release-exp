@@ -1,4 +1,4 @@
-use jacderida_exp_add_one::add_one;
+use jacderida_exp_add_lib::add_one;
 
 fn main() {
     let x = 10;
