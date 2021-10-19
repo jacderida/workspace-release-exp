@@ -14,8 +14,13 @@ pub fn add_four(x: i32) -> i32 {
     x + 4
 }
 
+pub fn add_five(x: i32) -> i32 {
+    x + 5
+}
+
 #[cfg(test)]
 mod tests {
+    use super::add_five;
     use super::add_four;
     use super::add_one;
     use super::add_three;
@@ -39,5 +44,10 @@ mod tests {
     #[test]
     fn should_add_four() {
         assert_eq!(5, add_four(1));
+    }
+
+    #[test]
+    fn should_add_five() {
+        assert_eq!(6, add_five(1));
     }
 }
