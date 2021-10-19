@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 1 commit contributed to the release.
+ - 2 commits contributed to the release.
  - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
 
@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release jacderida-exp2-add-lib v0.1.1, jacderida-exp2-adder v0.1.1 ([`633f876`](https://github.com/git//jacderida/workspace-release-exp.git/commit/633f876e400e5a74e841a0846cf51e18a312e6a2))
     - provide function for adding 5 ([`55b9daf`](https://github.com/git//jacderida/workspace-release-exp.git/commit/55b9daf4c67dade31c2510f11cc741755b3f057d))
 </details>
 
