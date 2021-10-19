@@ -23,8 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 4 commits contributed to the release over the course of 4 calendar days.
- - 4 commits where understood as [conventional](https://www.conventionalcommits.org).
+ - 1 commit contributed to the release.
+ - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
 
 ### Commit Details
@@ -34,9 +34,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
-    - provide publishing metadata ([`67dc658`](https://github.com/git//jacderida/workspace-release-exp.git/commit/67dc658eee8abfead34814608d91746ac01e902b))
-    - rename crate to add-lib ([`9aecbb2`](https://github.com/git//jacderida/workspace-release-exp.git/commit/9aecbb2e6a641e50fb1c97bfbc3fbca200dee7cb))
-    - use correct input name for action ([`d17cf9b`](https://github.com/git//jacderida/workspace-release-exp.git/commit/d17cf9b31d923d042767a8ddc2d77792bc4eb8ee))
-    - create adder binary ([`c71961b`](https://github.com/git//jacderida/workspace-release-exp.git/commit/c71961b732d9146f08ea5f428e2fe75259b0d2e0))
+    - rename crates to exp2 ([`1b64860`](https://github.com/git//jacderida/workspace-release-exp.git/commit/1b64860257581fd5a94ca87d1b674eefb97ece40))
 </details>
 
