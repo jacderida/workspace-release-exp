@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 1 commit contributed to the release.
+ - 2 commits contributed to the release.
  - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
 
@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release jacderida-exp2-add-lib v0.1.0, jacderida-exp2-adder v0.1.0 ([`e50bf48`](https://github.com/git//jacderida/workspace-release-exp.git/commit/e50bf48ad1bd954a3920e7ab6f0177f7955125dd))
     - rename crates to exp2 ([`1b64860`](https://github.com/git//jacderida/workspace-release-exp.git/commit/1b64860257581fd5a94ca87d1b674eefb97ece40))
 </details>
 
