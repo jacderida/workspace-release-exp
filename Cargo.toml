@@ -1,6 +1,6 @@
 [workspace]
 
 members = [
-    "jacderida-exp-adder",
-    "jacderida-exp-add-lib"
+    "jacderida-exp2-adder",
+    "jacderida-exp2-add-lib"
 ]
