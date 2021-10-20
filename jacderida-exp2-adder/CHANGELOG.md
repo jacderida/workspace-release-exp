@@ -5,17 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.1.1 (2021-10-19)
+## v0.1.2 (2021-10-20)
 
-### New Features
+### Bug Fixes
 
- - <csr-id-55b9daf4c67dade31c2510f11cc741755b3f057d/> provide function for adding 5
+ - <csr-id-c948e76811a17e3f7db4949c6dca5e372ce89d64/> use 100 rather than 10
 
 ### Commit Statistics
 
 <csr-read-only-do-not-edit/>
 
- - 2 commits contributed to the release.
+ - 2 commits contributed to the release over the course of 1 calendar day.
  - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
 
@@ -26,6 +26,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - Release jacderida-exp2-add-lib v0.1.2, jacderida-exp2-adder v0.1.2 ([`e8af59d`](https://github.com/git//jacderida/workspace-release-exp.git/commit/e8af59deb08b86db555034fa158e147e5047e871))
+    - use 100 rather than 10 ([`c948e76`](https://github.com/git//jacderida/workspace-release-exp.git/commit/c948e76811a17e3f7db4949c6dca5e372ce89d64))
+</details>
+
+## v0.1.1 (2021-10-19)
+
+### New Features
+
+ - <csr-id-55b9daf4c67dade31c2510f11cc741755b3f057d/> provide function for adding 5
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 3 commits contributed to the release.
+ - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
+ - 0 issues like '(#ID)' where seen in commit messages
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **Uncategorized**
+    - Release jacderida-exp2-adder v0.1.1 ([`0ecd59e`](https://github.com/git//jacderida/workspace-release-exp.git/commit/0ecd59ef9e5aa8ec21b7d2e97494a34c5c3d5acd))
     - Release jacderida-exp2-add-lib v0.1.1, jacderida-exp2-adder v0.1.1 ([`633f876`](https://github.com/git//jacderida/workspace-release-exp.git/commit/633f876e400e5a74e841a0846cf51e18a312e6a2))
     - provide function for adding 5 ([`55b9daf`](https://github.com/git//jacderida/workspace-release-exp.git/commit/55b9daf4c67dade31c2510f11cc741755b3f057d))
 </details>
