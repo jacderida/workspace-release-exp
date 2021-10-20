@@ -5,18 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.1.2 (2021-10-20)
+## v0.1.3 (2021-10-20)
 
 ### New Features
 
+ - <csr-id-df56321839975515f89df6733f3dc3fe8aa741c1/> provide an add_seven function
  - <csr-id-f83d7080002bfbe6b1b70b0eea8213811d38cf75/> provide function for adding 6
 
 ### Commit Statistics
 
 <csr-read-only-do-not-edit/>
 
- - 1 commit contributed to the release.
- - 1 commit where understood as [conventional](https://www.conventionalcommits.org).
+ - 3 commits contributed to the release over the course of 1 calendar day.
+ - 3 commits where understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' where seen in commit messages
 
 ### Commit Details
@@ -26,8 +27,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <details><summary>view details</summary>
 
  * **Uncategorized**
+    - provide an add_seven function ([`df56321`](https://github.com/git//jacderida/workspace-release-exp.git/commit/df56321839975515f89df6733f3dc3fe8aa741c1))
+    - v0.1.2, v0.1.2 ([`381aa86`](https://github.com/git//jacderida/workspace-release-exp.git/commit/381aa864c9b73dd76aad9b136f64f7537125dba7))
     - provide function for adding 6 ([`f83d708`](https://github.com/git//jacderida/workspace-release-exp.git/commit/f83d7080002bfbe6b1b70b0eea8213811d38cf75))
 </details>
+
+## v0.1.2 (2021-10-20)
+
+### New Features
+
+ - <csr-id-f83d7080002bfbe6b1b70b0eea8213811d38cf75/> provide function for adding 6
 
 ## v0.1.1 (2021-10-19)
 
