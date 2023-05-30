@@ -25,3 +25,35 @@ jobs:
           manifest-paths: |
             jacderida-exp-add-one/Cargo.toml
             jacderida-exp-adder/Cargo.toml
+
+jobs:
+  bump_version:
+    if: |
+      github.repository_owner == 'jacderida' &&
+      !startsWith(github.event.head_commit.message, 'chore(release):')
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+          token: ${{ secrets.MERGE_BUMP_BRANCH_TOKEN }}
+      - uses: actions-rs/toolchain@v1
+        id: toolchain
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - shell: bash
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - shell: bash
+        run: cargo install release-plz
+      - shell: bash
+        run: release-plz update
+      - name: push version bump commit and tags
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.MERGE_BUMP_BRANCH_TOKEN }}
+          branch: main
+          tags: true
