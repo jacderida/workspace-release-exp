@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
+set -e
+
 release-plz update
 
 crates_bumped=""
 readarray -t crates < <(git status --porcelain | awk '{if ($1 == "M") print $2}' | \
   xargs -I {} dirname {} | uniq)
+len=${#crates[@]}
+if [[ $len -eq 0 ]]; then
+  echo "No changes detected. Exiting without bumping any versions."
+  exit 0
+fi
+
 for crate in "${crates[@]}"; do
   version=$(cat $crate/Cargo.toml | \
     grep "^version" | awk -F "=" '{ print $2 }' | sed s/\"//g | xargs)
