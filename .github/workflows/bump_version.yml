@@ -9,24 +9,6 @@ env:
   NODE_ENV: 'development'
 
 jobs:
-  update_changelog:
-    runs-on: ubuntu-20.04
-    if: |
-      github.repository_owner == 'jacderida' &&
-      !startsWith(github.event.head_commit.message, 'chore(release):')
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
-      - name: bump version
-        uses: jacderida/rust-version-bump-branch-creator@workspace_versioning
-        with:
-          token: ${{ secrets.MERGE_BUMP_BRANCH_TOKEN }}
-          manifest-paths: |
-            jacderida-exp-add-one/Cargo.toml
-            jacderida-exp-adder/Cargo.toml
-
-jobs:
   bump_version:
     if: |
       github.repository_owner == 'jacderida' &&
