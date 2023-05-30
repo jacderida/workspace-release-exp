@@ -26,6 +26,10 @@ pub fn add_seven(x: i32) -> i32 {
     x + 7
 }
 
+pub fn add_eight(x: i32) -> i32 {
+    x + 8
+}
+
 #[cfg(test)]
 mod tests {
     use super::add_five;
@@ -35,6 +39,7 @@ mod tests {
     use super::add_six;
     use super::add_three;
     use super::add_two;
+    use super::add_eight;
 
     #[test]
     fn should_add_one() {
@@ -69,5 +74,10 @@ mod tests {
     #[test]
     fn should_add_seven() {
         assert_eq!(8, add_seven(1));
+    }
+
+    #[test]
+    fn should_add_eight() {
+        assert_eq!(9, add_eight(1));
     }
 }
