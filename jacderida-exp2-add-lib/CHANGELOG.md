@@ -63,6 +63,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - provide function for adding 5 ([`55b9daf`](https://github.com/git//jacderida/workspace-release-exp.git/commit/55b9daf4c67dade31c2510f11cc741755b3f057d))
 </details>
 
+## [0.1.4](https://github.com/jacderida/workspace-release-exp/compare/jacderida-exp2-add-lib-v0.1.3...jacderida-exp2-add-lib-v0.1.4) - 2023-05-31
+
+### Added
+- provide add eight
+
 ## v0.1.0 (2021-10-19)
 
 ### New Features
