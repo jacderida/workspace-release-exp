@@ -68,6 +68,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - provide add eight
 
+## [0.1.5](https://github.com/jacderida/workspace-release-exp/compare/jacderida-exp2-add-lib-v0.1.4...jacderida-exp2-add-lib-v0.1.5) - 2023-05-31
+
+### Added
+- ability to add nine
+
 ## v0.1.0 (2021-10-19)
 
 ### New Features
