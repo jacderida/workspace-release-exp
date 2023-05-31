@@ -32,7 +32,7 @@ jobs:
       - shell: bash
         run: cargo install release-plz
       - shell: bash
-        run: release-plz update
+        run: ./bump_version.sh
       - name: push version bump commit and tags
         uses: ad-m/github-push-action@master
         with:
