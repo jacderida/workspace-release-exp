@@ -6,8 +6,8 @@ env:
 on:
   push:
     tags:
-      - 'jacderida-exp2-adder-?v[0-9]+\.[0-9]+\.[0-9]+'
-      - 'jacderida-exp2-adder2-?v[0-9]+\.[0-9]+\.[0-9]+'
+      - 'jacderida-exp2-adder-*'
+      - 'jacderida-exp2-adder2-*'
 
 jobs:
   build:
