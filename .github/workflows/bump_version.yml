@@ -1,4 +1,4 @@
-name: version bump and create PR for changes
+name: version bump
 
 on:
   push:
