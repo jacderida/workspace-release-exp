@@ -1,4 +1,6 @@
-use jacderida_exp2_add_lib::{add_five, add_four, add_one, add_three, add_two, add_eight, add_nine, add_ten, add_eleven};
+use jacderida_exp2_add_lib::{
+    add_five, add_four, add_one, add_three, add_two, add_eight, add_nine, add_ten, add_eleven, add_twelve
+};
 
 fn main() {
     let x = 100;
@@ -12,4 +14,5 @@ fn main() {
     println!("Use add_nine: {}", add_nine(x));
     println!("Use add_ten: {}", add_ten(x));
     println!("Use add_eleven: {}", add_eleven(x));
+    println!("Use add_twelve: {}", add_twelve(x));
 }
