@@ -46,6 +46,10 @@ pub fn add_twelve(x: i32) -> i32 {
     x + 12
 }
 
+pub fn add_thirteen(x: i32) -> i32 {
+    x + 13
+}
+
 #[cfg(test)]
 mod tests {
     use super::add_five;
@@ -115,5 +119,10 @@ mod tests {
     #[test]
     fn should_add_twelve() {
         assert_eq!(13, add_twelve(1));
+    }
+
+    #[test]
+    fn should_add_thirteen() {
+        assert_eq!(14, add_twelve(1));
     }
 }
