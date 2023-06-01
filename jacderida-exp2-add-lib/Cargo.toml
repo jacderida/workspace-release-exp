@@ -1,6 +1,6 @@
 [package]
 name = "jacderida-exp2-add-lib"
-version = "0.1.7"
+version = "0.1.8"
 edition = "2018"
 description = "Little library for experimenting with automated release workflows."
 license = "MIT OR Apache-2.0"
