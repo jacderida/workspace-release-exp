@@ -1,15 +1,17 @@
-name: release
+name: release assets
+
+env:
+  RELEASE_REPO: jacderida/workspace-release-exp
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'jacderida-exp2-adder-?v[0-9]+*'
+      - 'jacderida-exp2-adder2-?v[0-9]+*'
 
 jobs:
   build:
-    if: |
-      github.repository_owner == 'jacderida' &&
-      startsWith(github.event.head_commit.message, 'chore(release):')
+    if: github.repository_owner == 'jacderida'
     name: build
     runs-on: ${{ matrix.os }}
     strategy:
@@ -30,7 +32,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions-rs/toolchain@v1
-        id: toolchain
         with:
           profile: minimal
           toolchain: stable
@@ -41,43 +42,39 @@ jobs:
         run: just build-release-artifacts "${{ matrix.target }}"
       - uses: actions/upload-artifact@main
         with:
-          name: adder-${{ matrix.target }}
+          name: safe_network-${{ matrix.target }}
           path: |
             artifacts
             !artifacts/.cargo-lock
 
-  release:
-    if: |
-      github.repository_owner == 'jacderida' &&
-      startsWith(github.event.head_commit.message, 'chore(release):')
-    name: release
+  upload_assets:
+    name: upload assets
     runs-on: ubuntu-latest
-    needs: [build]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@master
         with:
-          name: adder-x86_64-pc-windows-msvc
+          name: safe_network-x86_64-pc-windows-msvc
           path: artifacts/x86_64-pc-windows-msvc/release
       - uses: actions/download-artifact@master
         with:
-          name: adder-x86_64-unknown-linux-musl
+          name: safe_network-x86_64-unknown-linux-musl
           path: artifacts/x86_64-unknown-linux-musl/release
       - uses: actions/download-artifact@master
         with:
-          name: adder-x86_64-apple-darwin
+          name: safe_network-x86_64-apple-darwin
           path: artifacts/x86_64-apple-darwin/release
       - uses: actions/download-artifact@master
         with:
-          name: adder-arm-unknown-linux-musleabi
+          name: safe_network-arm-unknown-linux-musleabi
           path: artifacts/arm-unknown-linux-musleabi/release
       - uses: actions/download-artifact@master
         with:
-          name: adder-armv7-unknown-linux-musleabihf
+          name: safe_network-armv7-unknown-linux-musleabihf
           path: artifacts/armv7-unknown-linux-musleabihf/release
       - uses: actions/download-artifact@master
         with:
-          name: adder-aarch64-unknown-linux-musl
+          name: safe_network-aarch64-unknown-linux-musl
           path: artifacts/aarch64-unknown-linux-musl/release
       - uses: actions-rs/toolchain@v1
         with:
@@ -85,8 +82,14 @@ jobs:
           toolchain: stable
           override: true
       - shell: bash
-        run: cargo install release-plz
+        run: cargo install just
       - shell: bash
         run: |
-          cargo login ${{ secrets.CRATES_IO_TOKEN }}
-          release-plz release --git-token ${{ secrets.GITHUB_TOKEN }}
+          sudo apt-get install -y tree
+          tree artifacts
+
+          just package-release-assets "${{ github.ref_name }}"
+
+          echo "Uploading assets to release..."
+          cd deploy/${{ github.ref_name }}
+          ls | xargs gh release upload ${{ github.ref_name }} --repo $RELEASE_REPO

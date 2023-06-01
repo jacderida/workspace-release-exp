@@ -33,7 +33,7 @@ jobs:
         run: cargo install release-plz
       - shell: bash
         run: ./bump_version.sh
-      - name: push version bump commit and tags
+      - name: push version bump commit
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.MERGE_BUMP_BRANCH_TOKEN }}
