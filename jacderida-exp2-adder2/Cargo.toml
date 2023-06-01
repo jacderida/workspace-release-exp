@@ -1,0 +1,13 @@
+[package]
+name = "jacderida-exp2-adder2"
+version = "0.1.0"
+edition = "2018"
+description = "Little binary for experimenting with automated release workflows."
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "adder2"
+path = "src/main.rs"
+
+[dependencies]
+jacderida-exp2-add-lib = { version = "^0.1.5", path = "../jacderida-exp2-add-lib" }
