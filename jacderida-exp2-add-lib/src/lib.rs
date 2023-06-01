@@ -34,6 +34,10 @@ pub fn add_nine(x: i32) -> i32 {
     x + 9
 }
 
+pub fn add_ten(x: i32) -> i32 {
+    x + 10
+}
+
 #[cfg(test)]
 mod tests {
     use super::add_five;
@@ -88,5 +92,10 @@ mod tests {
     #[test]
     fn should_add_nine() {
         assert_eq!(10, add_nine(1));
+    }
+
+    #[test]
+    fn should_add_ten() {
+        assert_eq!(11, add_ten(1));
     }
 }
