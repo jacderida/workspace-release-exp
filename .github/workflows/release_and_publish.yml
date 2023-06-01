@@ -20,3 +20,9 @@ jobs:
         run: |
           cargo login ${{ secrets.CRATES_IO_TOKEN }}
           release-plz release --git-token ${{ secrets.GITHUB_TOKEN }}
+      - name: push version bump commit
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.MERGE_BUMP_BRANCH_TOKEN }}
+          branch: main
+          tags: true
