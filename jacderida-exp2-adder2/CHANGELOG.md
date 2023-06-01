@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5](https://github.com/jacderida/workspace-release-exp/compare/jacderida-exp2-adder2-v0.1.4...jacderida-exp2-adder2-v0.1.5) - 2023-06-01
+
+### Added
+- provide add_fifteen
+
 ## [0.1.4](https://github.com/jacderida/workspace-release-exp/compare/jacderida-exp2-adder2-v0.1.3...jacderida-exp2-adder2-v0.1.4) - 2023-06-01
 
 ### Added
