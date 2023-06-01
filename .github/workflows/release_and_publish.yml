@@ -1,0 +1,22 @@
+name: release and publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    if: |
+      github.repository_owner == 'jacderida' &&
+      startsWith(github.event.head_commit.message, 'chore(release):')
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - shell: bash
+        run: cargo install release-plz
+      - shell: bash
+        run: |
+          cargo login ${{ secrets.CRATES_IO_TOKEN }}
+          release-plz release --git-token ${{ secrets.GITHUB_TOKEN }}
