@@ -1,5 +1,5 @@
 use jacderida_exp2_add_lib::{
-    add_five, add_four, add_one, add_three, add_two, add_eight, add_nine, add_ten, add_eleven, add_twelve, add_thirteen, add_fourteen
+    add_five, add_four, add_one, add_three, add_two, add_eight, add_nine, add_ten, add_eleven, add_twelve, add_thirteen, add_fourteen, add_fifteen
 };
 
 fn main() {
@@ -17,4 +17,5 @@ fn main() {
     println!("Use add_twelve: {}", add_twelve(x));
     println!("Use add_thirteen: {}", add_thirteen(x));
     println!("Use add_fourteen: {}", add_fourteen(x));
+    println!("Use add_fifteen: {}", add_fifteen(x));
 }
