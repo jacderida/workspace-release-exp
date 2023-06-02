@@ -1,12 +1,9 @@
-name: release assets
-
-env:
-  RELEASE_REPO: jacderida/workspace-release-exp
+name: release
 
 on:
   push:
-    tags:
-      - jacderida-exp2-adder-*
+    branches:
+      - main
 
 jobs:
   build:
@@ -45,9 +42,11 @@ jobs:
           path: |
             artifacts
             !artifacts/.cargo-lock
-
-  upload_assets:
-    name: upload assets
+  release:
+    if: |
+      github.repository_owner == 'jacderida' &&
+      startsWith(github.event.head_commit.message, 'chore(release):')
+    name: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -81,14 +80,12 @@ jobs:
           toolchain: stable
           override: true
       - shell: bash
-        run: cargo install just
+        run: cargo install release-plz
       - shell: bash
         run: |
           sudo apt-get install -y tree
           tree artifacts
-
           just package-release-assets "${{ github.ref_name }}"
-
-          echo "Uploading assets to release..."
-          cd deploy/${{ github.ref_name }}
-          ls | xargs gh release upload ${{ github.ref_name }} --repo $RELEASE_REPO
+          tree deploy
+          cargo login ${{ secrets.CRATES_IO_TOKEN }}
+          release-plz release --git-token ${{ secrets.GITHUB_TOKEN }}
