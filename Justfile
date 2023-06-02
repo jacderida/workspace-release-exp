@@ -53,7 +53,7 @@ build-release-artifacts arch:
   find target/$arch/release -maxdepth 1 -type f -exec cp '{}' artifacts \;
   rm -f artifacts/.cargo-lock
 
-package-release-assets crate version="":
+package-release-assets bin version="":
   #!/usr/bin/env bash
   set -e
 
@@ -66,17 +66,16 @@ package-release-assets crate version="":
     "aarch64-unknown-linux-musl"
   )
 
-  case "{{crate}}" in
-    safe)
-      crate="jacderida-exp-adder"
-      bin_name="adder"
+  bin="{{bin}}"
+  case "$bin" in
+    adder)
+      crate="jacderida-exp2-adder"
       ;;
-    safenode)
-      crate="jacderida-exp-adder2"
-      bin_name="adder2"
+    adder2)
+      crate="jacderida-exp2-adder2"
       ;;
     *)
-      echo "The only supported crates are adder or adder2"
+      echo "The only supported binaries are adder or adder2"
       exit 1
       ;;
   esac
@@ -87,14 +86,66 @@ package-release-assets crate version="":
     version="{{version}}"
   fi
 
-  rm -rf deploy/$bin_name
-  find artifacts/ -name $bin_name -exec chmod +x '{}' \;
+  rm -rf deploy/$bin
+  find artifacts/ -name "$bin" -exec chmod +x '{}' \;
   for arch in "${architectures[@]}" ; do
-    if [[ $arch == *"windows"* ]]; then bin_name="${bin_name}.exe"; fi
-    zip -j $bin_name-$version-$arch.zip artifacts/$arch/release/$bin_name
-    tar -C artifacts/$arch/release -zcvf $bin_name-$version-$arch.tar.gz $bin_name
+    echo "Packaging for $arch..."
+    if [[ $arch == *"windows"* ]]; then bin_name="${bin}.exe"; else bin_name=$bin; fi
+    zip -j $bin-$version-$arch.zip artifacts/$arch/release/$bin_name
+    tar -C artifacts/$arch/release -zcvf $bin-$version-$arch.tar.gz $bin_name
   done
 
-  mkdir -p deploy/$crate
-  mv *.tar.gz deploy/$crate
-  mv *.zip deploy/$crate
+  mkdir -p deploy/$bin
+  mv *.tar.gz deploy/$bin
+  mv *.zip deploy/$bin
+
+upload-release-assets:
+  #!/usr/bin/env bash
+  set -e
+
+  binary_crates=(
+    "jacderida-exp2-adder"
+    "jacderida-exp2-adder2"
+  )
+
+  commit_msg=$(git log -1 --pretty=%B)
+  # Remove 'chore(release): ' prefix
+  commit_msg=${commit_msg#*: }
+
+  IFS='/' read -ra crates_with_versions <<< "$commit_msg"
+  declare -a crate_names
+  for crate_with_version in "${crates_with_versions[@]}"; do
+    crate=$(echo "$crate_with_version" | awk -F'-v' '{print $1}')
+    crates+=("$crate")
+  done
+
+  for crate in "${crates[@]}"; do
+    for binary_crate in "${binary_crates[@]}"; do
+        if [[ "$crate" == "$binary_crate" ]]; then
+            case "$crate" in
+              jacderida-exp2-adder)
+                bin_name="adder"
+                ;;
+              jacderida-exp2-adder2)
+                bin_name="adder2"
+                ;;
+              *)
+                echo "The only supported binaries are adder or adder2"
+                exit 1
+                ;;
+            esac
+            # The crate_with_version variable will correspond to the tag name of the release.
+            # However, only binary crates have releases, so we need to skip any tags that don't
+            # correspond to a binary.
+            for crate_with_version in "${crates_with_versions[@]}"; do
+              if [[ $crate_with_version == $crate-v* ]]; then
+                (
+                  echo "Uploading $bin_name assets to $crate_with_version release..."
+                  cd deploy/$bin_name
+                  ls | xargs gh release upload $crate_with_version --repo {{release_repo}}
+                )
+              fi
+            done
+        fi
+    done
+  done
