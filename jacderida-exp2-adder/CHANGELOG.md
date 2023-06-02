@@ -116,6 +116,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - provide add-twenty function
 
+## [0.1.15](https://github.com/jacderida/workspace-release-exp/compare/jacderida-exp2-adder-v0.1.14...jacderida-exp2-adder-v0.1.15) - 2023-06-02
+
+### Added
+- add twenty_one function
+
 ## v0.1.0 (2021-10-19)
 
 ### New Features
