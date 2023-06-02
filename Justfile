@@ -2,7 +2,7 @@
 
 release_repo := "jacderida/workspace-release-exp"
 
-build-release-artifacts arch bin:
+build-release-artifacts arch:
   #!/usr/bin/env bash
   set -e
 
@@ -43,9 +43,11 @@ build-release-artifacts arch bin:
   cargo clean
   if [[ $arch == arm* || $arch == armv7* || $arch == aarch64* ]]; then
     cargo install cross
-    cross build --release --target $arch --bin {{bin}}
+    cross build --release --target $arch --bin adder
+    cross build --release --target $arch --bin adder2
   else
-    cargo build --release --target $arch --bin {{bin}}
+    cargo build --release --target $arch --bin adder
+    cargo build --release --target $arch --bin adder2
   fi
 
   find target/$arch/release -maxdepth 1 -type f -exec cp '{}' artifacts \;

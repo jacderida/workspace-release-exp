@@ -7,7 +7,9 @@ on:
 
 jobs:
   build:
-    if: github.repository_owner == 'jacderida'
+    if: |
+      github.repository_owner == 'jacderida' &&
+      startsWith(github.event.head_commit.message, 'chore(release):')
     name: build
     runs-on: ${{ matrix.os }}
     strategy:
@@ -85,7 +87,8 @@ jobs:
         run: |
           sudo apt-get install -y tree
           tree artifacts
-          just package-release-assets "${{ github.ref_name }}"
+          just package-release-assets "jacderida-exp2-adder"
+          just package-release-assets "jacderida-exp2-adder2"
           tree deploy
           cargo login ${{ secrets.CRATES_IO_TOKEN }}
           release-plz release --git-token ${{ secrets.GITHUB_TOKEN }}
