@@ -74,6 +74,10 @@ pub fn add_nineteen(x: i32) -> i32 {
     x + 19
 }
 
+pub fn add_twenty(x: i32) -> i32 {
+    x + 20
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -171,5 +175,10 @@ mod tests {
     #[test]
     fn should_add_nineteen() {
         assert_eq!(20, add_nineteen(1));
+    }
+
+    #[test]
+    fn should_add_twenty() {
+        assert_eq!(20, add_twenty(1));
     }
 }
