@@ -98,6 +98,10 @@ pub fn add_twenty_five(x: i32) -> i32 {
     x + 25
 }
 
+pub fn add_twenty_six(x: i32) -> i32 {
+    x + 26
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -225,5 +229,10 @@ mod tests {
     #[test]
     fn should_add_twenty_five() {
         assert_eq!(25, add_twenty_five(1));
+    }
+
+    #[test]
+    fn should_add_twenty_six() {
+        assert_eq!(26, add_twenty_six(1));
     }
 }
