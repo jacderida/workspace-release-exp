@@ -100,9 +100,9 @@ jobs:
           curl -L -O $JUST_BIN_URL
           mkdir just
           tar xvf just-1.13.0-x86_64-unknown-linux-musl.tar.gz -C just
-          rm -rf just
           rm just-1.13.0-x86_64-unknown-linux-musl.tar.gz
           sudo mv just/just /usr/local/bin
+          rm -rf just
       - shell: bash
         run: |
           cargo login ${{ secrets.CRATES_IO_TOKEN }}
