@@ -1,0 +1,13 @@
+[workspace]
+allow_dirty = false
+changelog_update = true
+dependencies_update = false
+git_release_enable = true
+publish_allow_dirty = false
+semver_check = false
+
+[[package]]
+name = "jacderida-exp2-add-lib"
+changelog_update = true
+git_release_enable = false
+publish = true
