@@ -66,6 +66,10 @@ pub fn add_seventeen(x: i32) -> i32 {
     x + 17
 }
 
+pub fn add_eighteen(x: i32) -> i32 {
+    x + 18
+}
+
 #[cfg(test)]
 mod tests {
     use super::add_five;
@@ -160,5 +164,10 @@ mod tests {
     #[test]
     fn should_add_seventeen() {
         assert_eq!(18, add_seventeen(1));
+    }
+
+    #[test]
+    fn should_add_eighteen() {
+        assert_eq!(19, add_eighteen(1));
     }
 }
