@@ -108,6 +108,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - provide add_sixteen function
 
+## [0.1.13](https://github.com/jacderida/workspace-release-exp/compare/jacderida-exp2-add-lib-v0.1.12...jacderida-exp2-add-lib-v0.1.13) - 2023-06-02
+
+### Added
+- provide add-eighteen function
+
 ## v0.1.0 (2021-10-19)
 
 ### New Features
