@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  RELEASE_PLZ_BIN_URL: https://github.com/MarcoIeni/release-plz/releases/download/release-plz-v0.3.11/release-plz-x86_64-unknown-linux-gnu.tar.gz
+  JUST_BIN_URL: https://github.com/casey/just/releases/download/1.13.0/just-1.13.0-x86_64-unknown-linux-musl.tar.gz
+
 jobs:
   build:
     if: |
@@ -34,6 +38,7 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
+      # It's quite slow to install just by building it, but here we need a cross-platform solution.
       - shell: bash
         run: cargo install just
       - shell: bash
@@ -82,8 +87,22 @@ jobs:
           profile: minimal
           toolchain: stable
           override: true
-      - shell: bash
-        run: cargo install release-plz
+      # It's possible to `cargo install` these tools, but it's very slow to compile on GHA infra.
+      # Therefore we just pull some binaries from the Github Releases.
+      - name: install tools
+        shell: bash
+        run: |
+          curl -L -O $RELEASE_PLZ_BIN_URL
+          tar xvf release-plz-x86_64-unknown-linux-gnu.tar.gz
+          rm release-plz-x86_64-unknown-linux-gnu.tar.gz
+          sudo mv release-plz /usr/local/bin
+
+          curl -L -O $JUST_BIN_URL
+          mkdir just
+          tar just xvf just-1.13.0-x86_64-unknown-linux-musl.tar.gz -C just
+          rm -rf just
+          rm just-1.13.0-x86_64-unknown-linux-musl.tar.gz
+          sudo mv just/just /usr/local/bin
       - shell: bash
         run: |
           cargo login ${{ secrets.CRATES_IO_TOKEN }}
