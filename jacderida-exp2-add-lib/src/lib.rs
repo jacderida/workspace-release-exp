@@ -102,6 +102,10 @@ pub fn add_twenty_six(x: i32) -> i32 {
     x + 26
 }
 
+pub fn add_twenty_seven(x: i32) -> i32 {
+    x + 27
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -203,36 +207,41 @@ mod tests {
 
     #[test]
     fn should_add_twenty() {
-        assert_eq!(20, add_twenty(1));
+        assert_eq!(21, add_twenty(1));
     }
 
     #[test]
     fn should_add_twenty_one() {
-        assert_eq!(21, add_twenty_one(1));
+        assert_eq!(22, add_twenty_one(1));
     }
 
     #[test]
     fn should_add_twenty_two() {
-        assert_eq!(22, add_twenty_two(1));
+        assert_eq!(23, add_twenty_two(1));
     }
 
     #[test]
     fn should_add_twenty_three() {
-        assert_eq!(23, add_twenty_three(1));
+        assert_eq!(24, add_twenty_three(1));
     }
 
     #[test]
     fn should_add_twenty_four() {
-        assert_eq!(24, add_twenty_four(1));
+        assert_eq!(25, add_twenty_four(1));
     }
 
     #[test]
     fn should_add_twenty_five() {
-        assert_eq!(25, add_twenty_five(1));
+        assert_eq!(26, add_twenty_five(1));
     }
 
     #[test]
     fn should_add_twenty_six() {
-        assert_eq!(26, add_twenty_six(1));
+        assert_eq!(27, add_twenty_six(1));
+    }
+
+    #[test]
+    fn should_add_twenty_seven() {
+        assert_eq!(27, add_twenty_seven(1));
     }
 }
